@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/pokemon-api")
-public class PokemonApiController {
+@RequestMapping("/pokemon-location")
+public class PokemonLocationController {
 
-    @GetMapping("/{name}")
+    @GetMapping("/{name}") //name / id
     public String getPokemonLocation(@PathVariable String name) {
-        final String uri = "https://pokeapi.co/api/v2/location-area/" + name;   //locations areas
+        final String uri = "https://pokeapi.co/api/v2/location-area/" + name;
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
         return result;
